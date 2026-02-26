@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPConv</title>
+</head>
+
+<body>
+    <h3>Выберите файл в формате .docx</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="word_file" accept=".docx">
+        <button type="submit">Конвертиров   ать</button>
+    </form>
+    {% if error %}
+    <div style="color: red; margin-top: 20px;">
+        <strong>Ошибка:</strong> {{ error }}
+    </div>
+    {% endif %}
+    <hr>
+    <h3>Результат HTML-код</h3>
+    <textarea cols="80" rows="15" readonly>{{ html_output }}</textarea>
+
+    <h3>Предпросмотр:</h3>
+    <div style="border: 1px solid #ccc; padding: 10px;">
+        {{ html_output | safe }}
+    </div>
+
+
+</body>
+
+</html>
